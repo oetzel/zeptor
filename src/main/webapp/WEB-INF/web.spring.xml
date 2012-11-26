@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!--
+      Scan classpath for Spring components starting at base-package.
+      Automatically inludes:
+      - AutowiredAnnotationBeanPostProcessor
+      - CommonAnnotationBeanPostProcessor
+      -->
+    <context:component-scan base-package="edu.kit.scc.ldapecpproxy"/>
+
+    <!-- Import Orchestra Spring configuration -->
+    <import resource="classpath*:/META-INF/spring-orchestra-init.xml"/>
+
+    <!-- Configure view scope and additional Orchestra scopes -->
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="manual">
+                    <bean class="org.apache.myfaces.orchestra.conversation.spring.SpringConversationScope">
+                        <property name="timeout" value="30"/>
+                        <property name="advices">
+                            <list>
+                                <ref bean="persistentContextConversationInterceptor"/>
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+
+                <entry key="access">
+                    <bean class="org.apache.myfaces.orchestra.conversation.spring.SpringConversationScope">
+                        <property name="timeout" value="30"/>
+                        <property name="advices">
+                            <list>
+                                <ref bean="persistentContextConversationInterceptor"/>
+                            </list>
+                        </property>
+                        <property name="lifetime" value="access"/>
+                    </bean>
+                </entry>
+
+                <entry key="viewController">
+                    <bean class="org.apache.myfaces.orchestra.viewController.spring.SpringViewControllerScope">
+                        <property name="advices">
+                            <list>
+                                <ref bean="persistentContextConversationInterceptor"/>
+                            </list>
+                        </property>
+                    </bean>
+                </entry>
+
+             </map>
+        </property>
+    </bean>
+
+    <!-- Advice to ensure correct persistence context in Orchestra-scoped beans -->
+    <bean id="persistentContextConversationInterceptor"
+          class="org.apache.myfaces.orchestra.conversation.spring.PersistenceContextConversationInterceptor">
+        <property name="persistenceContextFactory" ref="persistentContextFactory"/>
+    </bean>
+
+    <!-- Define persistence context factory for JPA -->
+    <bean id="persistentContextFactory"
+          class="org.apache.myfaces.orchestra.conversation.spring.JpaPersistenceContextFactory">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+ 
+    <bean id="ingredientConverter" class="de.cyber_simon.zeptor.util.EntityConverter"
+            scope="viewController">
+        <property name="service" ref="ingredientService"/>
+    </bean>
+
+
+</beans>

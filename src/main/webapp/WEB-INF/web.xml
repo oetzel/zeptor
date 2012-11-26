@@ -1,0 +1,107 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+    version="3.0"> 
+
+	<display-name>Zeptor Rezepteverwaltung</display-name>
+
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>*.xhtml</url-pattern>
+	</servlet-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.xhtml</welcome-file>
+	</welcome-file-list>
+
+	<!-- Set up Spring character encoding filter to avoid problems with german 
+		umlauts -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<servlet-name>Faces Servlet</servlet-name>
+	</filter-mapping>
+
+	<!-- Context parameters -->
+	<context-param>
+		<param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL
+		</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+		<!-- param-value>Production</param-value -->
+	</context-param>
+
+	<!-- Spring configuration -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/web.spring.xml
+			classpath:service.spring.xml
+		</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.apache.myfaces.webapp.StartupServletContextListener</listener-class>
+	</listener>
+	<listener>
+  		<listener-class>org.apache.myfaces.orchestra.conversation.servlet.ConversationManagerSessionListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name>
+		<param-value>true</param-value>
+	</context-param>
+
+	<!-- Replace ExpressionFactory for Sun Mojarra -->
+	<context-param>
+		<param-name>com.sun.faces.expressionFactory</param-name>
+		<param-value>org.jboss.el.ExpressionFactoryImpl</param-value>
+	</context-param>
+
+	<!-- Replace ExpressionFactory for Apache MyFaces -->
+	<context-param>
+		<param-name>org.apache.myfaces.EXPRESSION_FACTORY</param-name>
+		<param-value>org.jboss.el.ExpressionFactoryImpl</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>org.apache.myfaces.SERIALIZE_STATE_IN_SESSION</param-name>
+		<param-value>false</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>javax.faces.FACELETS_LIBRARIES</param-name>
+		<param-value>/WEB-INF/mytags.taglib.xml</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+		<param-value>server</param-value>
+	</context-param>
+	
+</web-app>

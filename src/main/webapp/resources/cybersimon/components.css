@@ -1,0 +1,66 @@
+.box {
+	display: block;
+	border: solid 1px rgb(126, 125, 123);
+	padding: 0.3em;
+	margin-bottom: 0.8em;
+	
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+
+	background-image: linear-gradient(top, rgb(255,255,255) 19%, #D3D3C5 76%);
+	background-image: -o-linear-gradient(top, rgb(255,255,255) 19%, #D3D3C5 76%);
+	background-image: -moz-linear-gradient(top, rgb(255,255,255) 19%, #D3D3C5 76%);
+	background-image: -webkit-linear-gradient(top, rgb(255,255,255) 19%, #D3D3C5 76%);
+	background-image: -ms-linear-gradient(top, rgb(255,255,255) 19%, #D3D3C5 76%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.19, rgb(255,255,255)),
+		color-stop(0.76, #D3D3C5)
+	);
+}
+
+.box-header {
+    display: block;
+	margin: 0;
+	padding: 0.2em;
+	font-weight: bold;
+    background-color: #ccccbb; 
+}
+
+.collapsiblePanel-header {
+    display:block;
+}
+
+.collapsiblePanel-img {
+    margin-top: 3px;
+    margin-right: 10px;
+    float: left;
+}
+
+.ssomm-table {
+	border: solid 1px rgb(126, 125, 123);
+    border-collapse: separate;
+    border-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.ssomm-table-header {
+    padding: 2px 5px 2px 5px;
+    font-weight: bold;
+    background-color: #ccccbb; 
+}
+
+.ssomm-table-cell {
+    padding: 2px 5px 2px 5px;
+}
+
+.ssomm-table-rownobg {
+}
+
+.ssomm-table-rowbg {
+    background-color: #f3f3f5;
+}

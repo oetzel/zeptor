@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+		xmlns:f="http://java.sun.com/jsf/core"
+		xmlns:h="http://java.sun.com/jsf/html"
+		xmlns:ui="http://java.sun.com/jsf/facelets"
+		xmlns:cy="http://java.sun.com/jsf/composite/cybersimon">
+<head>
+	<title>Left side bar</title>
+</head>
+<body>
+	<ui:composition>
+        <cy:panelBox id="user-panel-box">
+        	<f:facet name="header">
+        		<h:outputText value="#{messages.user}"/>
+            </f:facet>
+	        <h:panelGrid columns="1">
+    	        <h:link outcome="/index.xhtml" value="#{messages.index}"/>
+    	        <h:link outcome="/list-recipe.xhtml" value="#{messages.list_recipe}"/>
+    	        <h:link outcome="/add-recipe.xhtml" value="#{messages.add_recipe}"/>
+	        </h:panelGrid>
+        </cy:panelBox>
+	</ui:composition>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:bw="http://www.cyber-simon.de/facelets">
+<head>
+<title></title>
+</head>
+<body>
+<f:view>
+	<f:metadata>
+		<f:viewParam name="id" value="#{editRecipeBean.id}"/>
+		<f:event type="javax.faces.event.PreRenderViewEvent"
+            listener="#{editRecipeBean.preRenderView}" />
+	</f:metadata>
+
+<ui:composition template="/template/default.xhtml">
+	<ui:param name="title" value="#{messages.title}"/>
+
+	<ui:define name="content">
+	<h:form id="form">
+		<h2><h:outputText value="#{messages.role}: #{editRoleBean.entity.name}"/></h2>
+	
+		<h:panelGrid id="baseData" columns="2" columnClasses="labelColumn, elementColumn">
+		
+	        <h:outputText value="#{messages.id}:"/>
+	        <h:outputText value="#{editRecipeBean.entity.id}"/>
+	
+	        <bw:inputText id="nameField" label="#{messages.name}" 
+	        	value="#{editRecipeBean.entity.name}" required="true"/>
+
+		</h:panelGrid>
+
+		<bw:dataTable id="ingrTable" var="ing" value="#{editRecipeBean.ingredientList}">
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{messages.value}" />
+				</f:facet>
+				<h:outputText value="#{ing.value}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{messages.unit}" />
+				</f:facet>
+				<h:outputText value="#{ing.unit.shortName}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{messages.ingredient_name}" />
+				</f:facet>
+				<h:outputText value="#{ing.ingredientName.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="#{messages.action}" />
+				</f:facet>
+				<h:commandLink action="#{editRecipeBean.deleteIngredient(ing)}" value="#{messages.delete}" />
+			</h:column>			
+		</bw:dataTable>
+
+		<h:panelGrid id="ingrData" columns="4" columnClasses="labelColumn, elementColumn">
+		
+			<h:inputText value="#{editRecipeBean.valueField}" />
+			<h:inputText value="#{editRecipeBean.unitField}" />
+			<h:inputText value="#{editRecipeBean.ingredientNameField}" />
+			<h:commandLink action="#{editRecipeBean.addIngredient}" value="#{messages.add}">
+				<f:ajax execute="@form" render="@form" />
+			</h:commandLink>
+			
+		</h:panelGrid>		
+
+		<h:inputTextarea rows="12" cols="80"
+            		value="#{editRecipeBean.entity.instruction}"/>
+
+		<div>
+			<h:commandButton id="save" action="#{editRecipeBean.save}" value="#{messages.save}"/>
+		</div>
+	</h:form>
+
+	</ui:define>
+</ui:composition>
+</f:view>		
+</body>
+</html>

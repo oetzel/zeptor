@@ -1,0 +1,146 @@
+html {
+	height: 100%;
+}
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.7em;
+	margin: 0;
+	height: 100%;
+	background: white url(/resources/img/bg_body.jpg) center 120px no-repeat;
+}
+
+div#wrapper {
+	width: 900px;
+	margin: 0 auto;
+	min-height: 100%;
+	background: white; 
+}
+
+div#container {
+	width: 900px;
+    margin: 0 auto;
+    padding: 0;
+	background-image: linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
+	background-image: -o-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
+	background-image: -moz-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
+	background-image: -webkit-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
+	background-image: -ms-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		color-stop(0.19, #f3f3f5),
+		color-stop(0.76, #ffffff)
+	);
+}
+
+div#clearer {
+	clear: both;
+	height: 0;	
+}
+
+div#header {
+	width: 900px;
+	height: 80px;
+    margin: 0 auto;
+	background-color: #ccccbb;
+	
+	-webkit-border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+/*
+ CDC4BC CDCDBC C4CDBC
+
+3A3A2C 66664D 91916E B2B299 D3D3C5
+*/
+
+div#left_sidebar {
+	float: left;
+	width: 140px;
+	margin-top: 8px;
+}
+
+div#content {
+	float: left;
+	width: 744px;
+	margin-top: 8px;
+	margin-bottom: 24px;
+	margin-left: 8px;
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+div#footer {
+	position: fixed;
+	bottom: 0;
+	width: 900px;
+	height: 16px;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	background-color: #ccccbb;
+}
+
+pre {
+	font-size: 1.2em;
+}
+
+input {
+	font-size: 1.0em;
+}
+
+div#recipeBox {
+	border: 1px solid #aaaaaa;
+	margin: 1.5em 10em 1em 5em;
+	padding: 0.5em 0.5em 0.5em 0.5em;
+}
+
+.pretext {
+	white-space: pre;
+	font-family: Courier,monospace;
+}
+
+.labelColumn {
+    width: 9em;
+}
+
+.elementColumn {
+}
+
+.errorColumn {
+}
+
+.requiredLabel {
+	color: #660000;
+}
+
+.ssomm-greenback {
+	background-color: #aaffaa;
+}
+
+.ssomm-yellowback {
+	background-color: #ffff77;
+}
+
+
+.ssomm-fatal {
+	color: #ff0000;
+}
+
+.ssomm-error {
+	color: #990000;
+}
+
+.ssomm-warn {
+	color: #550000;
+}
+
+.ssomm-info {
+	color: #005500;
+}

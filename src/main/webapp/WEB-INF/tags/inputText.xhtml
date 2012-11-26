@@ -1,0 +1,18 @@
+<ui:composition
+    xmlns:c="http://java.sun.com/jsp/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <c:set var="id" value="#{not empty id ? id : label}" />
+    <c:set var="required" value="#{not empty required and required}" />
+
+    <h:outputLabel for="#{id}" value="#{label}&#160;#{required ? '*&#160;' : ''}" />
+    <h:panelGroup>
+	    <h:inputText id="#{id}" size="50" value="#{value}" label="#{label}" required="#{required}">
+	        <f:ajax event="blur" execute="@this" render="#{id}-message" />
+	    </h:inputText>
+	    <h:message id="#{id}-message" for="#{id}" fatalClass="ssomm-fatal" errorClass="ssomm-error" warnClass="ssomm-warn" infoClass="ssomm-info"/>
+	</h:panelGroup>
+	
+</ui:composition>    
