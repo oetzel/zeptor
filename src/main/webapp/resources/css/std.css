@@ -4,23 +4,9 @@ html {
 
 body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	font-size: 0.7em;
 	margin: 0;
 	height: 100%;
-	background: white url(/resources/img/bg_body.jpg) center 120px no-repeat;
-}
 
-div#wrapper {
-	width: 900px;
-	margin: 0 auto;
-	min-height: 100%;
-	background: white; 
-}
-
-div#container {
-	width: 900px;
-    margin: 0 auto;
-    padding: 0;
 	background-image: linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
 	background-image: -o-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
 	background-image: -moz-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
@@ -34,6 +20,19 @@ div#container {
 		color-stop(0.19, #f3f3f5),
 		color-stop(0.76, #ffffff)
 	);
+}
+
+div#wrapper {
+	width: 1000px;
+	margin: 0 auto;
+	min-height: 100%;
+	background: white; 
+}
+
+div#container {
+	width: 900px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 div#clearer {
