@@ -11,16 +11,9 @@
 </head>
 <body>
 	<ui:composition>
-        <cy:panelBox id="user-panel-box">
-        	<f:facet name="header">
-        		<h:outputText value="#{messages.user}"/>
-            </f:facet>
-	        <h:panelGrid columns="1">
-    	        <h:link outcome="/index.xhtml" value="#{messages.index}"/>
-    	        <h:link outcome="/list-recipe.xhtml" value="#{messages.list_recipe}"/>
-    	        <h:link outcome="/add-recipe.xhtml" value="#{messages.add_recipe}"/>
-	        </h:panelGrid>
-        </cy:panelBox>
+		<h:link outcome="/index.xhtml" value="#{messages.index}"/> |
+  	    <h:link outcome="/list-recipe.xhtml" value="#{messages.list_recipe}"/> |
+  	    <h:link outcome="/add-recipe.xhtml" value="#{messages.add_recipe}"/>
 	</ui:composition>
 </body>
 </html>

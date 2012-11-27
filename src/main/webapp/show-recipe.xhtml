@@ -22,24 +22,30 @@
 	<ui:define name="content">
 	<h:form id="form">
 		<h2><h:outputText value="#{messages.recipe}: #{showRecipeBean.entity.name}"/></h2>
-	
-		<ui:repeat var="ing" value="#{showRecipeBean.ingredientList}">
-			<div>
-				<div style="float: left; width: 4.5em; text-align: right;">
-					<h:outputText value="#{ing.value} " />
-					<h:outputText value="#{ing.unit.shortName} " />
-				</div>
-				<div style="margin-left: 5em;">
-					<span><h:outputText value="#{ing.ingredientName.name}" /></span>
-				</div>
-			</div>
-		</ui:repeat>
 
+		<div id="ingrWrapper">
+			<div id="ingrBoxHeader">Zutaten</div>
+			<div id="ingrBox">	
+				<ui:repeat var="ing" value="#{showRecipeBean.ingredientList}">
+					<div>
+						<div style="float: left; width: 4.5em; text-align: right;">
+							<h:outputText value="#{ing.value} " />
+							<h:outputText value="#{ing.unit.shortName} " />
+						</div>
+						<div style="margin-left: 5em;">
+							<span><h:outputText value="#{ing.ingredientName.name}" /></span>
+						</div>
+					</div>
+				</ui:repeat>
+			</div>
+		</div>
+		
+		<div id="recipeBoxHeader">Zubereitung</div>
 		<div id="recipeBox">
 			<h:outputText value="#{showRecipeBean.instruction}" escape="false" />
 		</div>	
 
-		<div>
+		<div style="clear:both;">
 			<h:link outcome="edit-recipe.xhtml" value="#{messages.edit}">
 				<f:param name="id" value="#{showRecipeBean.entity.id}"/>
 			</h:link>

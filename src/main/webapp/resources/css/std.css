@@ -4,35 +4,16 @@ html {
 
 body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 0.8em;
 	margin: 0;
 	height: 100%;
-
-	background-image: linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
-	background-image: -o-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
-	background-image: -moz-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
-	background-image: -webkit-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
-	background-image: -ms-linear-gradient(top, #f3f3f5 19%, #ffffff 76%);
-	
-	background-image: -webkit-gradient(
-		linear,
-		left top,
-		left bottom,
-		color-stop(0.19, #f3f3f5),
-		color-stop(0.76, #ffffff)
-	);
+	background-color: #dddddd;	
 }
 
 div#wrapper {
 	width: 1000px;
 	margin: 0 auto;
 	min-height: 100%;
-	background: white; 
-}
-
-div#container {
-	width: 900px;
-    margin: 0 auto;
-    padding: 0;
 }
 
 div#clearer {
@@ -41,17 +22,10 @@ div#clearer {
 }
 
 div#header {
-	width: 900px;
-	height: 80px;
+	width: 1000px;
+	height: 24px;
     margin: 0 auto;
-	background-color: #ccccbb;
-	
-	-webkit-border-bottom-right-radius: 5px;
-	-webkit-border-bottom-left-radius: 5px;
-	-moz-border-radius-bottomright: 5px;
-	-moz-border-radius-bottomleft: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
+	background-color: #B2B299;
 }
 
 /*
@@ -60,31 +34,76 @@ div#header {
 3A3A2C 66664D 91916E B2B299 D3D3C5
 */
 
-div#left_sidebar {
-	float: left;
-	width: 140px;
-	margin-top: 8px;
+div#navbar {
+	width: 1000px;
+	background-color: #B2B299;
+	border-radius: 0px 0px 8px 8px; 
+	-moz-border-radius: 0px 0px 8px 8px; 
+	-webkit-border-radius: 0px 0px 8px 8px; 
 }
 
 div#content {
-	float: left;
-	width: 744px;
-	margin-top: 8px;
-	margin-bottom: 24px;
-	margin-left: 8px;
-	padding-left: 4px;
-	padding-right: 4px;
+	width: 960px;
+	padding: 0 20px 0 20px;
 }
 
 div#footer {
 	position: fixed;
 	bottom: 0;
-	width: 900px;
+	width: 1000px;
 	height: 16px;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	background-color: #ccccbb;
+	border-radius: 8px 8px 0px 0px; 
+	-moz-border-radius: 8px 8px 0px 0px; 
+	-webkit-border-radius: 8px 8px 0px 0px; 
 }
+
+div#ingrWrapper {
+	float: left;
+	width: 220px;
+}
+
+div#ingrBoxHeader {
+	background-color: #999999;
+	font-weight: bold;
+	margin: 0;
+	padding: 2px 8px 2px 8px;
+	border-radius: 8px 8px 0px 0px; 
+	-moz-border-radius: 8px 8px 0px 0px; 
+	-webkit-border-radius: 8px 8px 0px 0px; 
+}
+
+div#ingrBox {
+	background-color: #eeeeee;
+	margin: 0;
+	padding: 8px 8px 8px 8px;
+	border-radius: 0px 0px 8px 8px; 
+	-moz-border-radius: 0px 0px 8px 8px; 
+	-webkit-border-radius: 0px 0px 8px 8px; 
+}
+
+div#recipeBoxHeader {
+	heigth: 16px;
+	font-weight: bold;
+	background-color: #999999;
+	margin: 0 100px 0 260px;
+	padding: 2px 8px 2px 8px;
+	border-radius: 8px 8px 0px 0px; 
+	-moz-border-radius: 8px 8px 0px 0px; 
+	-webkit-border-radius: 8px 8px 0px 0px; 
+}
+
+div#recipeBox {
+	background-color: #eeeeee;
+	margin: 0 100px 0 260px;
+	padding: 8px 8px 8px 8px;
+	border-radius: 0px 0px 8px 8px; 
+	-moz-border-radius: 0px 0px 8px 8px; 
+	-webkit-border-radius: 0px 0px 8px 8px; 
+}
+
 
 pre {
 	font-size: 1.2em;
@@ -92,12 +111,6 @@ pre {
 
 input {
 	font-size: 1.0em;
-}
-
-div#recipeBox {
-	border: 1px solid #aaaaaa;
-	margin: 1.5em 10em 1em 5em;
-	padding: 0.5em 0.5em 0.5em 0.5em;
 }
 
 .pretext {
